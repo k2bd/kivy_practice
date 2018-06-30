@@ -1,0 +1,42 @@
+#:kivy 1.10.0
+
+<SpaceInvGame>:
+    ship: space_ship
+
+    canvas:
+        Rectangle:
+            pos:0,50
+            size: self.width, 2
+    Label:
+        font_size: 20 
+        center_x: root.width - 100
+        top: 75
+        text: "0"
+    
+    Spaceship:
+        id: space_ship
+        center_y : 105
+        center_x: self.parent.center_x
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: 15
+        padding: 0
+        
+        size: 50,50
+
+        top: 50
+        right: root.width - 150
+        
+        Button:
+            center_x : 25
+            center_y : 25
+            text:"Fire"
+            font_size : 20
+            on_press: root.fire_button_pressed()
+
+<Spaceship>:
+    Image:
+        source: 'res/ship.png'
+        size: 50,50
+        pos: root.pos
